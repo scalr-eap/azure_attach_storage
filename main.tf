@@ -16,7 +16,7 @@ resource "azurerm_managed_disk" "test" {
 
 resource "azurerm_virtual_machine_data_disk_attachment" "test" {
   managed_disk_id    = "${azurerm_managed_disk.test.id}"
-  virtual_machine_id = "azurestorage2"
+  virtual_machine_id = "/subscriptions/1482f7c9-0cf4-43f6-be8b-5971fb3eb4d1/resourceGroups/scalr-demo/providers/Microsoft.Compute/virtualMachines/azurestorage2"
   lun                = "1"
   caching            = "ReadWrite"
 }
