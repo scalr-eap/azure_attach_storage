@@ -10,11 +10,11 @@ variable "storage_name" {
   description = "Name of the storage device"
  }
 
-variable "rg_name" {}
-
 variable "region" {}
 
-variable "rg" {}
+variable "rg" {
+  description = "Resource Group Name"
+  }
 
 variable "size" {
  description = "Size of the disk"
