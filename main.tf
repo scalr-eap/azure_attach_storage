@@ -6,7 +6,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_managed_disk" "test" {
-  name                 = "azurestorage2"
+  name                 = "azurestorage3"
   location             = "East US"
   resource_group_name  = "scalr-demo"
   storage_account_type = "Standard_LRS"
