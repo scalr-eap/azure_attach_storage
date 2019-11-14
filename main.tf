@@ -5,9 +5,18 @@ provider "azurerm" {
     tenant_id = var.scalr_azurerm_tenant_id
 }
 
-resource "azure_data_disk" "data" {
-  lun                  = 0
-  size                 = 1
-  storage_service_name = "azurestorage2"
-  virtual_machine      = "azurestorage2"
+resource "azurerm_managed_disk" "test" {
+  name                 = "azurestorage2"
+  location             = "East US"
+  resource_group_name  = "scalr-demo"
+  storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = 1
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "test" {
+  managed_disk_id    = "${azurerm_managed_disk.test.id}"
+  virtual_machine_id = "azurestorage2"
+  lun                = "1"
+  caching            = "ReadWrite"
 }
